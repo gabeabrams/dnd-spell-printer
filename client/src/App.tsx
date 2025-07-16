@@ -7,10 +7,13 @@
 import React from 'react';
 
 // Data
-import listSpells from './data/listSpells';
+import allSpells from './data/allSpells';
+
+// Import other components
+import SpellCard from './SpellCard';
 
 // Import style
-import './App.css';
+import './App.scss';
 
 /*------------------------------------------------------------------------*/
 /* ------------------------------ Component ----------------------------- */
@@ -25,11 +28,27 @@ const App: React.FC = () => {
   /* --------------- Main UI -------------- */
   /*----------------------------------------*/
 
-  const spells = listSpells('Druid');
+  // Sort spells by level and then alphabetically
+  allSpells.sort((a, b) => {
+    if (a.level !== b.level) {
+      return a.level - b.level;
+    }
+    return a.name.localeCompare(b.name);
+  });
 
+  // Render
   return (
-    <div>
-      {JSON.stringify(spells, null, 2)}
+    <div className="App-container">
+      Spells:
+      <div className="App-spells d-flex flex-wrap gap-3">
+        {allSpells.map((spell) => {
+          return (
+            <SpellCard
+              spell={spell}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
