@@ -13,6 +13,7 @@ import {
   faClock,
   faBullseye,
   faHourglass2,
+  faArrowsToEye,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Import shared types
@@ -109,6 +110,17 @@ const SpellCard: React.FC<Props> = (props) => {
           icon={faClock}
         />
         {shortenDuration(spell.duration)}
+      </span>
+    );
+  }
+  if (spell.isConcentration) {
+    infoBarItems.push(
+      <span className="SpellCard-info-bar-item" key="concentration">
+        <FontAwesomeIcon
+          className="SpellCard-info-bar-item-icon"
+          icon={faArrowsToEye}
+        />
+        Concentrate
       </span>
     );
   }

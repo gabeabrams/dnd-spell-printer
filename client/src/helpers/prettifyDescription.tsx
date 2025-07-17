@@ -50,7 +50,12 @@ import {
   faPersonWalkingLuggage,
   faHeartCrack,
   faPlay,
+  faMinus,
+  faShapes,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircle as faOpenCircle,
+} from '@fortawesome/free-regular-svg-icons';
 import {
   faSith,
   faWindows,
@@ -66,9 +71,54 @@ import genDieSymbol from './genDieSymbol';
 const wordToIconMap: {
   [k: string]: (IconDefinition | string | React.ReactNode)[],
 } = {
-  radius: [faBullseye],
+  radius: [(
+    <span
+      style={{
+        position: 'relative',
+      }}
+    >
+      <FontAwesomeIcon
+        icon={faOpenCircle}
+      />
+      <FontAwesomeIcon
+        icon={faMinus}
+        style={{
+          position: 'absolute',
+          left: '0.8em',
+          top: '0.62em',
+          fontSize: '1.1em',
+          transform: 'scaleY(1.7)',
+        }}
+      />
+    </span>
+  )],
+  diameter: [(
+    <span
+      style={{
+        position: 'relative',
+      }}
+    >
+      <FontAwesomeIcon
+        icon={faOpenCircle}
+      />
+      <FontAwesomeIcon
+        icon={faMinus}
+        style={{
+          position: 'absolute',
+          left: '0.38em',
+          top: '0.63em',
+          fontSize: '1.1em',
+          transform: 'scale(2, 1.7)',
+        }}
+      />
+    </span>
+  )],
+  ranged: [faBullseye],
   sphere: [faGlobe],
   cube: [faCube],
+  obj: [faShapes],
+  objects: [faShapes],
+  object: [faShapes],
   visible: [faEye],
   level: [faAward],
   move: [faUpDownLeftRight],
