@@ -240,7 +240,7 @@ const App: React.FC = () => {
           style={{
             breakAfter: 'always',
           }}
-          className="d-flex gap-3 justify-content-center flex-wrap"
+          className="App-card-page"
         >
           {pageCards}
         </div>
@@ -249,11 +249,8 @@ const App: React.FC = () => {
 
     // Create body
     body = (
-      <div>
-        Spells:
-        <div className="App-printable-view">
-          {pages}
-        </div>
+      <div className="App-printable-view">
+        {pages}
       </div>
     );
   }

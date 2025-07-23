@@ -21,7 +21,7 @@ const shortenDuration = (duration: string): string => {
       .replace('day', 'd')
       .replace('days', 'd')
       .replace('turn', 't')
-      .replace('round', 'r')
+      .replace(' round', 'rnd')
       .replace('second', 's')
       .replace('seconds', 's')
       .replace('≤', '')

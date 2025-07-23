@@ -19,7 +19,6 @@ import prettifyDescription from './helpers/prettifyDescription';
 // Import artwork
 import Scroll from './artwork/Scroll.svg';
 import SwordAndShield from './artwork/SwordAndShield.svg';
-import parchment from './artwork/parchment.jpg';
 
 // Import styles
 import './SpellCard.scss';
@@ -55,6 +54,7 @@ const SpellCard: React.FC<Props> = (props) => {
 
   // Initialize refs
   const longDescriptionBoxRef = useRef<HTMLDivElement>(null);
+  const longDescriptionBoxContainerRef = useRef<HTMLDivElement>(null);
 
   /*------------------------------------------------------------------------*/
   /* ------------------------- Lifecycle Functions ------------------------ */
@@ -67,19 +67,18 @@ const SpellCard: React.FC<Props> = (props) => {
   useEffect(
     () => {
       (async () => {
-        let fontSize = 1;
+        let fontSize = 8;
         for (let i = 0; i < 1000; i++) {
-          if (longDescriptionBoxRef.current) {
+          if (longDescriptionBoxRef.current && longDescriptionBoxContainerRef.current) {
             // Get height of content inside
             const contentHeight = longDescriptionBoxRef.current.scrollHeight;
-            const boxHeight = longDescriptionBoxRef.current.clientHeight;
-            console.log('Content height:', contentHeight, 'Box height:', boxHeight);
+            const boxHeight = longDescriptionBoxContainerRef.current.clientHeight - 5;
 
             // Check if the content height is larger than the box height
-            if (contentHeight > boxHeight) {
+            if (contentHeight > boxHeight && fontSize > 1) {
               // Too big! Shrink the text slightly
-              fontSize -= 0.01;
-              longDescriptionBoxRef.current.style.fontSize = `${fontSize}em`;
+              fontSize -= 0.1;
+              longDescriptionBoxRef.current.style.fontSize = `${fontSize}px`;
 
               // Retry
               continue;
@@ -216,6 +215,13 @@ const SpellCard: React.FC<Props> = (props) => {
                 {shortenedDescription}
               </div>
             </div>
+
+            {/* Background */}
+            <div className="SpellCard-top-lower-row-back-container">
+              <div
+                className="SpellCard-top-lower-row-back"
+              />
+            </div>
           </div>
         </div>
 
@@ -223,10 +229,10 @@ const SpellCard: React.FC<Props> = (props) => {
         <div
           className="SpellCard-bottom-container"
           style={{
-            backgroundImage: `url(${parchment})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
+          ref={longDescriptionBoxContainerRef}
         >
           <div ref={longDescriptionBoxRef}>
             {
