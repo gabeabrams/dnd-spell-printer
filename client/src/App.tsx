@@ -8,6 +8,7 @@ import React, { useReducer } from 'react';
 
 // Data
 import allSpells from './data/allSpells';
+import spellOverrides from './data/spellOverrides';
 
 // Import other components
 import SpellCard from './SpellCard';
@@ -16,6 +17,10 @@ import SpellChooser from './SpellChooser';
 // Import style
 import './App.scss';
 
+/*------------------------------------------------------------------------*/
+/* ---------------------------- Preprocessing --------------------------- */
+/*------------------------------------------------------------------------*/
+
 // Sort spells by level and then alphabetically
 allSpells.sort((a, b) => {
   if (a.level !== b.level) {
@@ -23,6 +28,17 @@ allSpells.sort((a, b) => {
   }
   return a.name.localeCompare(b.name);
 });
+
+// Apply overrides to spells
+allSpells.forEach((spell) => {
+  const override = spellOverrides[spell.id];
+  if (override) {
+    Object.keys(override).forEach((key) => {
+      spell[key] = override[key];
+    });
+  }
+});
+
 
 /*------------------------------------------------------------------------*/
 /* -------------------------------- State ------------------------------- */
