@@ -6,12 +6,23 @@
  */
 
 const shortenRange = (range: string): string => {
-  if (range === 'Self') {
+  if (!range) {
     return '';
+  }
+  if (range === 'Self') {
+    return 'S';
   }
   return (
     range
       .replace(' ft.', 'ft')
+      .replace(' feet', 'ft')
+      .replace(' foot', 'ft')
+      .replace(' miles', 'mi')
+      .replace(' mile', 'mi')
+      .replace(' yards', 'yd')
+      .replace(' yard', 'yd')
+      .replace(' inches', 'in')
+      .replace(' inch', 'in')
   );
 };
 

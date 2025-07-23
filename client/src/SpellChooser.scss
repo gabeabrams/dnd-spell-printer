@@ -1,0 +1,16 @@
+.SpellChooser-outer-container {
+  /* Background */
+  background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
+
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.SpellChooser-inner-container {
+  max-width: 59.9rem;
+  margin: 0 auto;
+}
+
+.SpellChooser-spell-checkbox {
+  min-width: 19.1rem;
+}

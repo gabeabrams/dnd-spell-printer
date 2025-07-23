@@ -15,16 +15,20 @@ const shortenCastingTime = (castingTime?: string): string | undefined => {
   const words = (
     castingTime
       .replace('Bonus Action', 'Bonus')
+      .replace('Reaction', 'React')
+      .replace('Action', 'Act')
       .split(',')[0] // Take only the first part before any commas
+      .split('(')[0] // Ignore any additional information in parentheses
+      .trim()
       .split(' ')
   );
 
   // Shorten each word
   const shortenedWords = words.map((word) => {
     // Handle common casting time formats
-    if (word === 'minute' || word === 'minutes') {
+    if (word === 'minute' || word === 'minutes' || word === 'min') {
       return 'm';
-    } else if (word === 'hour' || word === 'hours') {
+    } else if (word === 'hour' || word === 'hours' || word === 'hr') {
       return 'h';
     } else if (word === 'day' || word === 'days') {
       return 'd';

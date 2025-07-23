@@ -52,6 +52,14 @@ import {
   faPlay,
   faMinus,
   faShapes,
+  faCheckToSlot,
+  faTent,
+  faUtensils,
+  faImagePortrait,
+  faSnowflake,
+  faLemon,
+  faCloudMeatball,
+  faPowerOff,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faCircle as faOpenCircle,
@@ -72,25 +80,12 @@ const wordToIconMap: {
   [k: string]: (IconDefinition | string | React.ReactNode)[],
 } = {
   radius: [(
-    <span
+    <FontAwesomeIcon
+      icon={faPowerOff}
       style={{
-        position: 'relative',
+        transform: 'rotate(90deg)',
       }}
-    >
-      <FontAwesomeIcon
-        icon={faOpenCircle}
-      />
-      <FontAwesomeIcon
-        icon={faMinus}
-        style={{
-          position: 'absolute',
-          left: '0.8em',
-          top: '0.62em',
-          fontSize: '1.1em',
-          transform: 'scaleY(1.7)',
-        }}
-      />
-    </span>
+    />
   )],
   diameter: [(
     <span
@@ -131,6 +126,8 @@ const wordToIconMap: {
   air: [faWind],
   earth: [faMountainSun],
   beast: [faSpider],
+  lightweight: [faFeather],
+  beasts: [faSpider],
   damage: [faHeartCrack],
   damages: [faHeartCrack],
   plant: [faSprout],
@@ -139,7 +136,17 @@ const wordToIconMap: {
   lightning: [faBolt],
   mental: [faHeadSideVirus],
   turn: [faPlay],
+  cold: [faSnowflake],
+  acid: [faLemon],
+  thunder: [faCloudMeatball],
   audible: [faBullhorn],
+  success: [faCheckToSlot],
+  'half': ['½'],
+  'third': ['⅓'],
+  'quarter': ['¼'],
+  'sixth': ['⅙'],
+  'eighth': ['⅛'],
+  'eigth': ['⅛'],
   '^l': [(
     <FontAwesomeIcon
       icon={faArrowUpWideShort}
@@ -164,9 +171,12 @@ const wordToIconMap: {
   magicaction: [faHandSparkles],
   bonusaction: [faHands],
   action: [faHand],
+  self: [faImagePortrait],
+  you: [faImagePortrait],
   spellcastingmodifier: [faRankingStar],
   spellcastingabilitymodifier: [faRankingStar],
   endofnextturn: [faForwardStep],
+  endofturn: [faForwardStep],
   startofnextturn: [faBackwardStep],
   startofturn: [faBackwardStep],
   rangedspellattack: [faWandSparkles],
@@ -209,6 +219,8 @@ const wordToIconMap: {
   roll: [faDice],
   advantage: [faSquareCheck],
   disadvantage: [faSquareXmark],
+  longrest: [faTent],
+  shortrest: [faUtensils],
   torch: [(
     <FontAwesomeIcon
       icon={faBroom}
@@ -226,6 +238,12 @@ const wordToIconMap: {
       }}
     />
   )],
+  'd4': [genDieSymbol(4)],
+  'd6': [genDieSymbol(6)],
+  'd8': [genDieSymbol(8)],
+  'd10': [genDieSymbol(10)],
+  'd12': [genDieSymbol(12)],
+  'd20': [genDieSymbol(20)],
   '1d4': [genDieSymbol(4)],
   '1d6': [genDieSymbol(6)],
   '1d8': [genDieSymbol(8)],
@@ -280,6 +298,7 @@ const wordToIconMap: {
   '-3d10': [genDieSymbol(10, '-3')],
   '-3d12': [genDieSymbol(12, '-3')],
   '-3d20': [genDieSymbol(20, '-3')],
+  '6d6': [genDieSymbol(6, '6')],
 };
 
 // Punctuation that should not have a space before it

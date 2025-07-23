@@ -1,10 +1,14 @@
-$card-height: 88mm;
-$card-width: 63mm;
+$card-height: 60.9mm;
+$card-width: 84.75mm;
 
-$card-padding: 0.01 * $card-height;
-$top-height: 0.2 * $card-height;
-$level-marker-size: 0.07 * $card-height;
+$card-padding: 0.012 * $card-height;
+$top-height: 0.29 * $card-height;
+$level-marker-size: 0.1 * $card-height;
 $line-width: 0.01 * $card-height;
+
+$dark-background: #333;
+
+$name-width: 0.697 * $card-width;
 
 .SpellCard-outer-container {
   /* Sizing */
@@ -39,15 +43,18 @@ $line-width: 0.01 * $card-height;
   height: $top-height;
 
   /* Background */
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: white;
+
+  /* Border */
+  border-bottom: $line-width solid black;
 }
 
 .SpellCard-top-upper-row {
   display: flex;
   align-items: center;
   width: 100%;
-  font-size: $level-marker-size * 0.7;
   margin-top: $card-padding;
+  padding-bottom: $card-padding;
 }
 
 .SpellCard-top-lower-row {
@@ -57,7 +64,9 @@ $line-width: 0.01 * $card-height;
   justify-content: center;
   flex-grow: 1;
   width: 100%;
-  font-size: $level-marker-size * 0.5;
+
+  /* Background */
+  background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
 }
 
 .SpellCard-level-marker {
@@ -113,16 +122,10 @@ $line-width: 0.01 * $card-height;
   transform: translate(0.27 * $level-marker-size, -0.34 * $level-marker-size);
 }
 
-.SpellCard-info-stack {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  line-height: $level-marker-size * 0.6;
-}
-
 .SpellCard-name {
   text-overflow: ellipsis;
-  overflow: hidden;
+  white-space: nowrap;
+  width: $name-width;
   font-size: $level-marker-size * 0.73;
   line-height: $level-marker-size * 0.6;
 }
@@ -130,25 +133,36 @@ $line-width: 0.01 * $card-height;
 .SpellCard-info-bar {
   display: flex;
   flex-direction: row;
-  gap: $card-padding;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $card-padding * 0.5;
+  font-weight: bold;;
+  width: $level-marker-size * 2.5;
+  margin-right: $card-padding * 0.5;
 }
 
 .SpellCard-info-bar-item {
   /* Sizing */
   display: flex;
   align-items: center;
-  gap: $card-padding * 0.5;
+  justify-content: space-between;
+  width: $level-marker-size * 2.5;
+  height: $level-marker-size * 0.42;
   border-radius: 0.5 * $card-padding;
-  font-size: $level-marker-size * 0.3;
+  font-size: $level-marker-size * 0.4;
   line-height: $level-marker-size * 0.4;
-  padding-left: $card-padding * 0.4;
-  padding-right: $card-padding * 0.4;
+  padding-left: $card-padding * 0.5;
+  padding-right: $card-padding * 0.5;
+  padding-top: $card-padding * 0.25;
+  padding-bottom: $card-padding * 0.25;
 
   /* Text */
+  color: white;
   text-wrap: nowrap;
 
   /* Background */
-  background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
+  background-color: $dark-background;
 }
 
 .SpellCard-info-bar-item-icon {
@@ -160,13 +174,19 @@ $line-width: 0.01 * $card-height;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: $level-marker-size;
+  height: $level-marker-size * 0.9;
   margin-right: $card-padding;
+  padding-left: $card-padding * 0.4;
+  padding-right: $card-padding * 0.4;
+
+  border-radius: 0.5 * $card-padding;
+  background-color: $dark-background;
+  color: white;
 }
 
 .SpellCard-vsm-item {
-  font-size: $level-marker-size * 0.4;
-  line-height: $level-marker-size * 0.4;
+  font-size: $level-marker-size * 0.3;
+  line-height: $level-marker-size * 0.3;
 }
 
 .SpellCard-short-description {
@@ -180,7 +200,15 @@ $line-width: 0.01 * $card-height;
   /* Sizing */
   display: flex;
   flex-direction: column;
+  justify-content: end;
   width: 100%;
-  height: calc(100% - #{$top-height});
-  font-size: $level-marker-size * 0.3;
-} 
+  height: calc(100% - $top-height);
+  font-size: 0.5rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.SpellCard-bottom-container > div {
+  height: 100%;
+}
+

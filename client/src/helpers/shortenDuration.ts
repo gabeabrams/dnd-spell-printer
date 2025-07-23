@@ -6,10 +6,27 @@
  */
 
 const shortenDuration = (duration: string): string => {
-  if (duration === 'Instantaneous') {
+  if (!duration || duration === 'Instantaneous') {
     return 'Inst';
   }
-  return duration;
+
+  return (
+    duration
+      .replace('minute', 'm')
+      .replace('minutes', 'm')
+      .replace('min', 'm')
+      .replace('hour', 'h')
+      .replace('hours', 'h')
+      .replace('hr', 'h')
+      .replace('day', 'd')
+      .replace('days', 'd')
+      .replace('turn', 't')
+      .replace('round', 'r')
+      .replace('second', 's')
+      .replace('seconds', 's')
+      .replace('≤', '')
+      .replace('Until dispelled', '∞')
+  );
 };
 
 export default shortenDuration;

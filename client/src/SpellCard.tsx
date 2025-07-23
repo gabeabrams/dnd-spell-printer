@@ -4,17 +4,7 @@
  */
 
 // Import React
-import React from 'react';
-
-// Import FontAwesome icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHandHoldingWater,
-  faClock,
-  faBullseye,
-  faHourglass2,
-  faArrowsToEye,
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useRef, useEffect } from 'react';
 
 // Import shared types
 import Spell from './types/Spell';
@@ -29,9 +19,11 @@ import prettifyDescription from './helpers/prettifyDescription';
 // Import artwork
 import Scroll from './artwork/Scroll.svg';
 import SwordAndShield from './artwork/SwordAndShield.svg';
+import parchment from './artwork/parchment.jpg';
 
 // Import styles
 import './SpellCard.scss';
+import { waitMs } from 'dce-reactkit';
 
 /*------------------------------------------------------------------------*/
 /* -------------------------------- Types ------------------------------- */
@@ -59,6 +51,51 @@ const SpellCard: React.FC<Props> = (props) => {
     spell,
   } = props;
 
+  /* -------------- Refs -------------- */
+
+  // Initialize refs
+  const longDescriptionBoxRef = useRef<HTMLDivElement>(null);
+
+  /*------------------------------------------------------------------------*/
+  /* ------------------------- Lifecycle Functions ------------------------ */
+  /*------------------------------------------------------------------------*/
+
+  /**
+   * Mount: shrink long description to fit
+   * @author Gabe Abrams
+   */
+  useEffect(
+    () => {
+      (async () => {
+        let fontSize = 1;
+        for (let i = 0; i < 1000; i++) {
+          if (longDescriptionBoxRef.current) {
+            // Get height of content inside
+            const contentHeight = longDescriptionBoxRef.current.scrollHeight;
+            const boxHeight = longDescriptionBoxRef.current.clientHeight;
+            console.log('Content height:', contentHeight, 'Box height:', boxHeight);
+
+            // Check if the content height is larger than the box height
+            if (contentHeight > boxHeight) {
+              // Too big! Shrink the text slightly
+              fontSize -= 0.01;
+              longDescriptionBoxRef.current.style.fontSize = `${fontSize}em`;
+
+              // Retry
+              continue;
+            } else {
+              // Fits! Break out of the loop
+              break;
+            }
+          }
+
+          await waitMs(10);
+        }
+      })();
+    },
+    [],
+  );
+
   /*------------------------------------------------------------------------*/
   /* ------------------------------- Render ------------------------------- */
   /*------------------------------------------------------------------------*/
@@ -68,62 +105,29 @@ const SpellCard: React.FC<Props> = (props) => {
   /*----------------------------------------*/
 
   // Build info bar items
-  const infoBarItems: React.ReactNode[] = [];
-  if (spell.isRitual) {
-    infoBarItems.push(
-      <span className="SpellCard-info-bar-item" key="ritual">
-        <FontAwesomeIcon
-          className="SpellCard-info-bar-item-icon"
-          icon={faHourglass2}
-        />
-        Ritual
-      </span>
-    );
-  }
-  if (spell.castingTime && spell.castingTime !== '1 action') {
-    infoBarItems.push(
+  const infoBarItems = (
+    <>
       <span className="SpellCard-info-bar-item" key="casting-time">
-        <FontAwesomeIcon
-          className="SpellCard-info-bar-item-icon"
-          icon={faHandHoldingWater}
-        />
-        {shortenCastingTime(spell.castingTime)}
+        <span>
+          {shortenCastingTime(spell.castingTime || '1 action')}
+        </span>
+        {(spell.isRitual || spell.isConcentration) && (
+          <span>
+            {spell.isRitual && 'R'}
+            {spell.isConcentration && 'C'}
+          </span>
+        )}
       </span>
-    );
-  }
-  if (spell.range && spell.range !== 'Self') {
-    infoBarItems.push(
-      <span className="SpellCard-info-bar-item" key="range">
-        <FontAwesomeIcon
-          className="SpellCard-info-bar-item-icon"
-          icon={faBullseye}
-        />
-        {shortenRange(spell.range)}
-      </span>
-    );
-  }
-  if (spell.duration && spell.duration !== 'Instantaneous') {
-    infoBarItems.push(
       <span className="SpellCard-info-bar-item" key="duration">
-        <FontAwesomeIcon
-          className="SpellCard-info-bar-item-icon"
-          icon={faClock}
-        />
-        {shortenDuration(spell.duration)}
+        <span>
+          {shortenDuration(spell.duration)}
+        </span>
+        <span>
+          {shortenRange(spell.range)}
+        </span>
       </span>
-    );
-  }
-  if (spell.isConcentration) {
-    infoBarItems.push(
-      <span className="SpellCard-info-bar-item" key="concentration">
-        <FontAwesomeIcon
-          className="SpellCard-info-bar-item-icon"
-          icon={faArrowsToEye}
-        />
-        Concentrate
-      </span>
-    );
-  }
+    </>
+  );
 
   // Get shortened description
   const shortenedDescription = prettifyDescription(
@@ -163,36 +167,43 @@ const SpellCard: React.FC<Props> = (props) => {
               </div>
             </div>
 
-            {/* Info Stack */}
-            <div className="SpellCard-info-stack">
-              {/* Name */}
-              <div className="SpellCard-name text-stylized">
-                {spell.name}
-              </div>
-              {/* Info Items */}
-              <div className="SpellCard-info-bar">
-                {infoBarItems}
-              </div>
+            {/* Name */}
+            <div className="SpellCard-name text-stylized">
+              {spell.name}
+            </div>
+
+            {/* Info Items */}
+            <div className="SpellCard-info-bar">
+              {infoBarItems}
             </div>
 
             {/* VSM */}
             {(spell.isVerbal || spell.isSomatic || spell.isMaterial) && (
-              <div className="SpellCard-vsm-container text-stylized">
-                {spell.isVerbal && (
-                  <div className="SpellCard-vsm-item">
-                    V
-                  </div>
-                )}
-                {spell.isSomatic && (
-                  <div className="SpellCard-vsm-item">
-                    S
-                  </div>
-                )}
-                {spell.isMaterial && (
-                  <div className="SpellCard-vsm-item">
-                    M
-                  </div>
-                )}
+              <div className="SpellCard-vsm-container">
+                <div
+                  className="SpellCard-vsm-item"
+                  style={{
+                    opacity: spell.isVerbal ? 1 : 0,
+                  }}
+                >
+                  V
+                </div>
+                <div
+                  className="SpellCard-vsm-item"
+                  style={{
+                    opacity: spell.isSomatic ? 1 : 0,
+                  }}
+                >
+                  S
+                </div>
+                <div
+                  className="SpellCard-vsm-item"
+                  style={{
+                    opacity: spell.isMaterial ? 1 : 0,
+                  }}
+                >
+                  M
+                </div>
               </div>
             )}
           </div>
@@ -209,12 +220,21 @@ const SpellCard: React.FC<Props> = (props) => {
         </div>
 
         {/* Bottom */}
-        <div className="SpellCard-bottom-container">
-          {
-            spell.descriptionHTML
-              ? <span dangerouslySetInnerHTML={{ __html: spell.descriptionHTML }} />
-              : 'No description available.'
-          }
+        <div
+          className="SpellCard-bottom-container"
+          style={{
+            backgroundImage: `url(${parchment})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div ref={longDescriptionBoxRef}>
+            {
+              spell.descriptionHTML
+                ? <span dangerouslySetInnerHTML={{ __html: spell.descriptionHTML }} />
+                : 'No description available.'
+            }
+          </div>
         </div>
       </div>
     </div>
