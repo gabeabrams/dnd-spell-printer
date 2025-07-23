@@ -8,6 +8,7 @@ import React, { useReducer } from 'react';
 
 // Data
 import allSpells from './data/allSpells';
+import additionalSpells from './data/additionalSpells';
 import spellOverrides from './data/spellOverrides';
 
 // Import other components
@@ -20,6 +21,9 @@ import './App.scss';
 /*------------------------------------------------------------------------*/
 /* ---------------------------- Preprocessing --------------------------- */
 /*------------------------------------------------------------------------*/
+
+// Add additional spells to the main spell list
+allSpells.push(...additionalSpells);
 
 // Sort spells by level and then alphabetically
 allSpells.sort((a, b) => {

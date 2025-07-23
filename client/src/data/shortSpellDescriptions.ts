@@ -387,6 +387,8 @@ const shortSpellDescriptions: {
   'water-walk': 'Target can move across liquid surface (water acid mud snow quicksand lava) as if harmless solid ground (lava heat still does damage). BonusAction to toggle between surface and inside liquid. Break into water on fall',
   'web': '',
   'weird': '',
+  'wild-shape': 'Beast until incap/BonusAction. Regain 1/ShortRest, all/LongRest, 1/spell slot level 1 (other dir once/LongRest). + temp HP = level. Beast stats, keep intel/wis/char/feats/skill/save/prof, keep higher beast skill/save mod. No cast, can concentrate. Stuff fall/wear?/merge',
+  'wild-companion': 'No material cost, cast find familiar: 0cha obed. beast (> celest > fey > fiend). Telep ≤100ft, BonusAction see/hear EndOfNextTurn, react: do spell touch. Own init. Gone 0 HP. MagicAction out≤30ft/in+drop pocket dim. Max 1',
   'wind-walk': '',
   'wind-wall': 'Creatures strength save or 4d8 bludgeoning damage on start. Half on success. Any grounded shape 50ft long, 15tall, 1thick, last duration. No fog/smoke/gas, gas or ≤small fly creatures stopped, loose lightweight stuff fly up, arrows/ord. projec. miss',
   'wish': '',

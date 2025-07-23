@@ -23,6 +23,8 @@ import SwordAndShield from './artwork/SwordAndShield.svg';
 // Import styles
 import './SpellCard.scss';
 import { waitMs } from 'dce-reactkit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright, faRegistered } from '@fortawesome/free-solid-svg-icons';
 
 /*------------------------------------------------------------------------*/
 /* -------------------------------- Types ------------------------------- */
@@ -112,8 +114,16 @@ const SpellCard: React.FC<Props> = (props) => {
         </span>
         {(spell.isRitual || spell.isConcentration) && (
           <span>
-            {spell.isRitual && 'R'}
-            {spell.isConcentration && 'C'}
+            {spell.isRitual && (
+              <FontAwesomeIcon
+                icon={faRegistered}
+              />
+            )}
+            {spell.isConcentration && (
+              <FontAwesomeIcon
+                icon={faCopyright}
+              />
+            )}
           </span>
         )}
       </span>

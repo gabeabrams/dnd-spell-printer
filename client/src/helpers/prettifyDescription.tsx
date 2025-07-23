@@ -60,6 +60,9 @@ import {
   faLemon,
   faCloudMeatball,
   faPowerOff,
+  faFaceDizzy,
+  faCopyright,
+  faRegistered,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faCircle as faOpenCircle,
@@ -124,7 +127,11 @@ const wordToIconMap: {
   sand: [faUmbrellaBeach],
   dust: [faFeather],
   air: [faWind],
+  concentration: [faCopyright],
+  concentrate: [faCopyright],
+  ritual: [faRegistered],
   earth: [faMountainSun],
+  unconscious: [faFaceDizzy],
   beast: [faSpider],
   lightweight: [faFeather],
   beasts: [faSpider],
