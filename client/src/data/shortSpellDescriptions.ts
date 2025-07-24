@@ -364,7 +364,7 @@ const shortSpellDescriptions: {
   'thunderclap': 'Creatures 5ft radius of you const save or 1d6 thunder damage, sound heard up to 100ft away ^C +1d6 damage',
   'time-stop': '',
   'toll-the-dead': 'Wis save or 1d8 necrotic damage. If not full HP, 1d12 damage instead ^C +1 die',
-  'thunderwave': 'Constitution save or 2d8 thunder damage, pushed 10ft away. Half damage on success. Unsecured objecxts entirely in cube pushed 10ft, audible boom heard 300ft ^L +1d8 damage',
+  'thunderwave': 'Constitution save or 2d8 thunder damage, pushed 10ft away. Half damage on success. Unsecured objects entirely in cube pushed 10ft, audible boom heard 300ft ^L +1d8 damage',
   'tongues': '',
   'tree-stride': '',
   'transport-via-plants': '',
