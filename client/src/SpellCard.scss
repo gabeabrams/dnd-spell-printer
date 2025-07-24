@@ -137,7 +137,10 @@ $name-width: 0.697 * $card-width;
 .SpellCard-name {
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow-x: hidden;
   width: $name-width;
+  height: $level-marker-size;
+  transform: translateY(0.2 * $level-marker-size);
   font-size: $level-marker-size * 0.73;
   line-height: $level-marker-size * 0.6;
 }
