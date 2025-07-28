@@ -9,10 +9,9 @@ Simply start the server (assuming you have [Node.js](https://nodejs.org/) instal
 ```bash
 npm run start
 ```
+Visit the app in your browser by opening the URL provided in the terminal.
 
 # Managing Data
-
-Visit the app in your browser by opening the URL provided in the terminal.
 
 ## How to Rescrape Spells
 
