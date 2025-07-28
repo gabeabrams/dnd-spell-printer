@@ -290,7 +290,7 @@ const UNPROCESSED_WORD_TO_ICON_MAP: {
 
     // Add each prefix
     prefixes.forEach((prefix) => {
-      WORD_TO_ICON_MAP[`${prefix}d${die}`] = [genDieSymbol(die, prefix)];
+      UNPROCESSED_WORD_TO_ICON_MAP[`${prefix}d${die}`] = [genDieSymbol(die, prefix)];
     });
   }
 });

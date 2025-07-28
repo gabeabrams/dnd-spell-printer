@@ -17,7 +17,6 @@ const shortenCastingTime = (castingTime?: string): string | undefined => {
       // Replace common phrases with shorter versions
       .replace('Bonus Action', 'Bonus')
       .replace('Reaction', 'React')
-      .replace('Action', 'Act')
       // Take only the first part before any commas
       .split(',')[0]
       // Ignore any additional information in parentheses

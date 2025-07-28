@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd client && npm install && npm run dev",
+    "scrape": "cd spellScraper && npm install && npm run start"
   },
   "repository": {
     "type": "git",
