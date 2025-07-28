@@ -2,7 +2,8 @@
 import Spell from '../types/Spell';
 
 /**
- * List of additional spells to be included in the spell list
+ * List of additional spells to be included in the spell list,
+ * but that are not part of the basic 5e spells from the scraper
  * @author Gabe Abrams
  */
 const additionalSpells: Spell[] = [

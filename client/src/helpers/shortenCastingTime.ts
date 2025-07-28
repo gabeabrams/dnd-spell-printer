@@ -14,12 +14,17 @@ const shortenCastingTime = (castingTime?: string): string | undefined => {
   // Split the casting time by spaces to handle different formats
   const words = (
     castingTime
+      // Replace common phrases with shorter versions
       .replace('Bonus Action', 'Bonus')
       .replace('Reaction', 'React')
       .replace('Action', 'Act')
-      .split(',')[0] // Take only the first part before any commas
-      .split('(')[0] // Ignore any additional information in parentheses
+      // Take only the first part before any commas
+      .split(',')[0]
+      // Ignore any additional information in parentheses
+      .split('(')[0]
+      // Remove any leading/trailing whitespace
       .trim()
+      // Split into words
       .split(' ')
   );
 

@@ -1,5 +1,6 @@
 /**
- * Overrides for spell data
+ * Overrides for spell data (only define values that differ from the
+ * default spell data)
  * @author Gabe Abrams
  */
 const spellOverrides: {

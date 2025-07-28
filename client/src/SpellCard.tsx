@@ -6,6 +6,13 @@
 // Import React
 import React, { useRef, useEffect } from 'react';
 
+// Import reactkit
+import { waitMs } from 'dce-reactkit';
+
+// Import FontAwesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright, faRegistered } from '@fortawesome/free-solid-svg-icons';
+
 // Import shared types
 import Spell from './types/Spell';
 
@@ -22,9 +29,6 @@ import SwordAndShield from './artwork/SwordAndShield.svg';
 
 // Import styles
 import './SpellCard.scss';
-import { waitMs } from 'dce-reactkit';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopyright, faRegistered } from '@fortawesome/free-solid-svg-icons';
 
 /*------------------------------------------------------------------------*/
 /* -------------------------------- Types ------------------------------- */
