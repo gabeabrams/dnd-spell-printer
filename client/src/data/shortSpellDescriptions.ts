@@ -183,6 +183,7 @@ const shortSpellDescriptions: {
   'hallow': '',
   'hallucinatory-terrain': '',
   'healing-word': 'Creature of choice regains (2d4 + SpellcastingModifier) HP ^L +2d4 HP',
+  'healing-spirit': 'Intangible spirit in 5ft cube (beast/fey). On creature move into (1st time/turn) or StartOfTurn, can choose +1d6 HP (no action, not constructs/undead). BonusAction move ≤30ft. Ends after (1 + SpellcastingModifier, min 2x) ^L +1d6 HP',
   'heal': '',
   'haste': '',
   'harm': '',

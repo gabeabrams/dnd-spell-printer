@@ -207,6 +207,26 @@ const wordToIconMap: {
       />
     </span>
   )],
+  notwornorcarried: [(
+    <span
+      style={{
+        position: 'relative',
+      }}
+    >
+      <FontAwesomeIcon
+        icon={faPersonWalkingLuggage}
+      />
+      <FontAwesomeIcon
+        icon={faXmark}
+        style={{
+          position: 'absolute',
+          left: '-0.05em',
+          top: 0,
+          fontSize: '0.8em',
+        }}
+      />
+    </span>
+  )],
   strength: [faDumbbell],
   door: [faDoorOpen],
   doors: [faDoorOpen],
