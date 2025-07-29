@@ -15,7 +15,7 @@ import d20 from './diceImages/d20.svg';
  * @param textBefore The text to display before the die symbol
  * @returns The generated die symbol as a React node
  */
-const genDieSymbol = (die: number, textBefore?: string): React.ReactNode => {
+const genDieSymbol = (die: number, textBefore: string): React.ReactNode => {
   // Get the image of the die
   let dieImage: string;
   switch (die) {
