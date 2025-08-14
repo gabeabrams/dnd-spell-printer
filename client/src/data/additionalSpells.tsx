@@ -82,6 +82,110 @@ As a bonus action on your turn, you can move the Spirit up to 30 feet to a space
 `.trim(),
     classes: ['Druid', 'Ranger'],
   },
+  {
+    id: 'shape-water',
+    name: 'Shape Water',
+    level: 0,
+    isAttack: false,
+    range: '30ft',
+    isRitual: false,
+    isVerbal: false,
+    isSomatic: true,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: false,
+    duration: 'Inst/1hr',
+    castingTime: 'Action',
+    descriptionHTML: `
+You choose an area of water that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways:
+<br>
+• You instantaneously move or otherwise change the flow of the water as you direct, up to 5 feet in any direction. This movement doesn't have enough force to cause damage.
+<br>
+• You cause the water to form into simple shapes and animate at your direction. This change lasts for 1 hour.
+<br>
+• You change the water's color or opacity. The water must be changed in the same way throughout. This change lasts for 1 hour.
+<br>
+• You freeze the water, provided that there are no creatures in it. The water unfreezes in 1 hour.
+<br>
+If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'magic-stone',
+    name: 'Magic Stone',
+    level: 0,
+    isAttack: true,
+    range: '60ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: false,
+    duration: '1m',
+    castingTime: 'Bonus',
+    descriptionHTML: `
+You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker’s, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone.
+<br>
+<br>
+If you cast this spell again, the spell ends early on any pebbles still affected by it.
+    `.trim(),
+    classes: ['Druid', 'Artificier', 'Warlock'],
+  },
+  {
+    id: 'erupting-earth',
+    name: 'Erupting Earth',
+    level: 3,
+    isAttack: true,
+    range: '120ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: '1 piece of obsidian',
+    isConcentration: false,
+    duration: 'Instantaneous',
+    castingTime: 'Action',
+    descriptionHTML: `
+  Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.
+  <br>
+  <strong>At Higher Levels.</strong>
+  When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd.
+  
+  `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'starry-form',
+    name: 'Starry Form',
+    level: 2,
+    isAttack: false,
+    range: 'Self',
+    isRitual: false,
+    isVerbal: false,
+    isSomatic: false,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: false,
+    duration: '10m',
+    castingTime: 'Bonus',
+    descriptionHTML: `
+As a Bonus Action, you can expend a use of your Wild Shape feature to take on a starry form rather than shape-shifting.
+<br>
+While in your starry form, you retain your game statistics, but your body becomes luminous, your joints glimmer like stars, and glowing lines connect them as on a star chart. This form sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet. The form lasts for 10 minutes. It ends early if you dismiss it (no action required), have the Incapacitated condition, or use this feature again.
+<br>
+Whenever you assume your starry form, choose which of the following constellations glimmers on your body; your choice gives you certain benefits while in the form.
+<br>
+<strong>Archer.</strong> A constellation of an archer appears on you. When you activate this form and as a Bonus Action on your subsequent turns while it lasts, you can make a ranged spell attack, hurling a luminous arrow that targets one creature within 60 feet of yourself. On a hit, the attack deals Radiant damage equal to 1d8 plus your Wisdom modifier.
+<br>
+<strong>Chalice.</strong> A constellation of a life-giving goblet appears on you. Whenever you cast a spell using a spell slot that restores Hit Points to a creature, you or another creature within 30 feet of you can regain Hit Points equal to 1d8 plus your Wisdom modifier.
+<br>
+<strong>Dragon.</strong> A constellation of a wise dragon appears on you. When you make an Intelligence or a Wisdom check or a Constitution saving throw to maintain Concentration, you can treat a roll of 9 or lower on the d20 as a 10.
+    `.trim(),
+    classes: ['Druid'],
+  },
 ];
+
 
 export default additionalSpells;

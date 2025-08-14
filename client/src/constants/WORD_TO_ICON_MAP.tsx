@@ -290,7 +290,15 @@ const UNPROCESSED_WORD_TO_ICON_MAP: {
 
     // Add each prefix
     prefixes.forEach((prefix) => {
-      UNPROCESSED_WORD_TO_ICON_MAP[`${prefix}d${die}`] = [genDieSymbol(die, prefix)];
+      let usedPrefix = prefix;
+      if (prefix === '1') {
+        usedPrefix = '';
+      } else if (prefix === '+1') {
+        usedPrefix = '+';
+      } else if (prefix === '-1') {
+        usedPrefix = '-';
+      }
+      UNPROCESSED_WORD_TO_ICON_MAP[`${prefix}d${die}`] = [genDieSymbol(die, usedPrefix)];
     });
   }
 });
