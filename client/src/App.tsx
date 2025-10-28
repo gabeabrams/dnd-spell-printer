@@ -38,7 +38,8 @@ allSpells.forEach((spell) => {
   const override = spellOverrides[spell.id];
   if (override) {
     Object.keys(override).forEach((key) => {
-      spell[key] = override[key];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (spell as any)[key] = override[key];
     });
   }
 });
@@ -253,16 +254,14 @@ const App: React.FC = () => {
 
     // Break into checks of 4
     const pages: React.ReactNode[] = [];
-    for (let i = 0; i < spellCards.length; i += 4) {
-      const pageCards = spellCards.slice(i, i + 4);
+    const cardsPerPage = 4;
+    for (let i = 0; i < spellCards.length; i += cardsPerPage) {
+      const pageCards = spellCards.slice(i, i + cardsPerPage);
       pages.push(
-        <div
-          style={{
-            breakAfter: 'always',
-          }}
-          className="App-card-page"
-        >
-          {pageCards}
+        <div className="App-card-page-container">
+          <div className="App-card-page">
+            {pageCards}
+          </div>
         </div>
       );
     }
