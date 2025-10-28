@@ -308,21 +308,24 @@ A nature spirit answers your call and transforms you into a powerful guardian. T
 <br>
 <em><strong>Primal Beast.</strong></em> Bestial fur covers your body, your facial features become feral, and you gain the following benefits:
 <br>
-<ul>
-<li>Your walking speed increases by 10 feet.</li>
-<li>You gain darkvision with a range of 120 feet.</li>
-<li>You make Strength-based attack rolls with advantage.</li>
-<li>Your melee weapon attacks deal an extra 1d6 force damage on a hit.</li>
-</ul>
+• Your walking speed increases by 10 feet.
+<br>
+• You gain darkvision with a range of 120 feet.
+<br>
+• You make Strength-based attack rolls with advantage.
+<br>
+• Your melee weapon attacks deal an extra 1d6 force damage on a hit.
 <br>
 <em><strong>Great Tree.</strong></em> Your skin appears barky, leaves sprout from your hair, and you gain the following benefits:
 <br>
-<ul>
-<li>You gain 10 temporary hit points.</li>
-<li>You make Constitution saving throws with advantage.</li>
-<li>You make Dexterity- and Wisdom-based attack rolls with advantage.</li>
-<li>While you are on the ground, the ground within 15 feet of you is <a class="tooltip-hover rule-tooltip" href="https://www.dndbeyond.com/sources/basic-rules/adventuring#DifficultTerrain" data-tooltip-href="//www.dndbeyond.com/rules/86-tooltip?disable-webm=1&amp;disable-webm=1">difficult terrain</a> for your enemies.</li>
-</ul>
+• You gain 10 temporary hit points.
+<br>
+• You make Constitution saving throws with advantage.
+<br>
+• You make Dexterity- and Wisdom-based attack rolls with advantage.
+<br>
+• While you are on the ground, the ground within 15 feet of you is <a class="tooltip-hover rule-tooltip" href="https://www.dndbeyond.com/sources/basic-rules/adventuring#DifficultTerrain" data-tooltip-href="//www.dndbeyond.com/rules/86-tooltip?disable-webm=1&amp;disable-webm=1">difficult terrain</a> for your enemies.
+<br>
     `.trim(),
     classes: ['Druid', 'Ranger'],
   },
