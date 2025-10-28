@@ -126,7 +126,7 @@ If you cast this spell multiple times, you can have no more than two of its non-
     duration: '1m',
     castingTime: 'Bonus',
     descriptionHTML: `
-You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker’s, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone.
+You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker's, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone.
 <br>
 <br>
 If you cast this spell again, the spell ends early on any pebbles still affected by it.
@@ -184,6 +184,174 @@ Whenever you assume your starry form, choose which of the following constellatio
 <strong>Dragon.</strong> A constellation of a wise dragon appears on you. When you make an Intelligence or a Wisdom check or a Constitution saving throw to maintain Concentration, you can treat a roll of 9 or lower on the d20 as a 10.
     `.trim(),
     classes: ['Druid'],
+  },
+  {
+    id: 'earthbind',
+    name: 'Earthbind',
+    level: 2,
+    isAttack: true,
+    range: '300ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: false,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: true,
+    duration: '1 minute',
+    castingTime: 'Action',
+    descriptionHTML: `
+    Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell’s duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Warlock', 'Wizard'],
+  },
+  {
+    id: 'mold-earth',
+    name: 'Mold Earth',
+    level: 0,
+    isAttack: false,
+    range: '30ft',
+    isRitual: false,
+    isVerbal: false,
+    isSomatic: true, 
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: false,
+    duration: 'Instantaneous',
+    castingTime: 'Action',
+    descriptionHTML: `
+You choose a portion of dirt or stone that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways:
+<br>
+<br>
+• If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn’t have enough force to cause damage.
+<br>
+• You cause shapes, colors, or both to appear on the dirt or stone, spelling out words, creating images, or shaping patterns. The changes last for 1 hour.
+<br>
+• If the dirt or stone you target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour.
+<br>
+<br>
+If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'barbarian-rage',
+    name: 'Barbarian Rage',
+    level: 1,
+    isAttack: true,
+    range: 'Self',
+    isRitual: false,
+    isVerbal: false,
+    isSomatic: false,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: false,
+    duration: '10 min',
+    castingTime: 'Bonus',
+    descriptionHTML: `
+You can rage the number of times shown in the Barbarian table. Regain one expended use on short rest, all on long rest.
+<br>
+<strong>Resistance:</strong> Bludgeoning, Piercing, and Slashing damage.
+<br>
+<strong>Rage Damage:</strong> On Strength attack (weapon/Unarmed), deal bonus damage as shown in Barbarian table.
+<br>
+<strong>Strength Advantage:</strong> Advantage on Strength checks and saves.
+<br>
+<strong>No Concentration or Spells</strong>
+<br>
+<strong>Duration:</strong> Lasts until end of next turn or if incapacitated or don heavy armor. Can extend another round by:
+<br>
+• Attacking an enemy
+<br>
+• Forcing enemy to make a save
+<br>
+• Take Bonus Action to extend
+`.trim(),
+    classes: ['Barbarian'],
+  },
+  {
+    id: 'elemental-bane',
+    name: 'Elemental Bane',
+    level: 4,
+    isAttack: true,
+    range: '90ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: '',
+    isConcentration: true,
+    duration: '1 minute',
+    castingTime: 'Action',
+    descriptionHTML: `
+      Choose one creature you can see within range, and choose one of the following damage types: acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends.
+      <br>
+      <strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.
+    `.trim(),
+    classes: ['Artificier', 'Druid', 'Warlock', 'Wizard'],
+  },
+  {
+    id: 'guardian-of-nature',
+    name: 'Guardian of Nature',
+    level: 4,
+    isAttack: false,
+    range: 'Self',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: false,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: true,
+    duration: '1 minute',
+    castingTime: 'Bonus',
+    descriptionHTML: `
+A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose one of the following forms to assume: Primal Beast or Great Tree.
+<br>
+<em><strong>Primal Beast.</strong></em> Bestial fur covers your body, your facial features become feral, and you gain the following benefits:
+<br>
+<ul>
+<li>Your walking speed increases by 10 feet.</li>
+<li>You gain darkvision with a range of 120 feet.</li>
+<li>You make Strength-based attack rolls with advantage.</li>
+<li>Your melee weapon attacks deal an extra 1d6 force damage on a hit.</li>
+</ul>
+<br>
+<em><strong>Great Tree.</strong></em> Your skin appears barky, leaves sprout from your hair, and you gain the following benefits:
+<br>
+<ul>
+<li>You gain 10 temporary hit points.</li>
+<li>You make Constitution saving throws with advantage.</li>
+<li>You make Dexterity- and Wisdom-based attack rolls with advantage.</li>
+<li>While you are on the ground, the ground within 15 feet of you is <a class="tooltip-hover rule-tooltip" href="https://www.dndbeyond.com/sources/basic-rules/adventuring#DifficultTerrain" data-tooltip-href="//www.dndbeyond.com/rules/86-tooltip?disable-webm=1&amp;disable-webm=1">difficult terrain</a> for your enemies.</li>
+</ul>
+    `.trim(),
+    classes: ['Druid', 'Ranger'],
+  },
+  {
+    id: 'watery-sphere',
+    name: 'Watery Sphere',
+    level: 4,
+    isAttack: true,
+    range: '90ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: 'a droplet of water',
+    isConcentration: true,
+    duration: '1 minute',
+    castingTime: 'Action',
+    descriptionHTML: `
+You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration.
+<br>
+Any creature in the sphere's space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success.
+<br>
+The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already restrained by the sphere falls out of it and lands prone in a space within 5 feet of it.
+<br>
+As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature restrained by the sphere moves with it. You can ram the sphere into creatures, forcing them to make the saving throw.
+<br>
+When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature restrained by the sphere is knocked prone in the space where it falls. The water then vanishes.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
   },
 ];
 
