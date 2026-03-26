@@ -356,6 +356,60 @@ When the spell ends, the sphere falls to the ground and extinguishes all normal 
     `.trim(),
     classes: ['Druid', 'Sorcerer', 'Wizard'],
   },
+  {
+    id: 'wither-and-bloom',
+    name: 'Wither and Bloom',
+    level: 2,
+    isAttack: true,
+    range: '60ft',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: 'a withered vine twisted into a loop',
+    isConcentration: false,
+    duration: 'Instantaneous',
+    castingTime: 'Action',
+    descriptionHTML: `
+    You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers.
+    <br>
+    In addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier.
+    <br>
+    <strong>At Higher Levels.</strong>When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot above 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'warding-wind',
+    name: 'Warding Wind',
+    level: 2,
+    isAttack: false,
+    range: 'Self (10ft radius)',
+    isRitual: false,
+    isVerbal: true,
+    isSomatic: false,
+    isMaterial: false,
+    isConcentration: true,
+    duration: 'Up to 10 minutes',
+    materialCost: '',
+    castingTime: 'Action',
+    descriptionHTML: `
+    A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell's duration.
+    <br><br>
+    The wind has the following effects:
+    <br><br>
+    • It deafens you and other creatures in its area.
+    <br><br>
+    • It extinguishes unprotected flames in its area that are torch-sized or smaller.
+    <br><br>
+    • It hedges out vapor, gas, and fog that can be dispersed by strong wind.
+    <br><br>
+    • The area is difficult terrain for creatures other than you.
+    <br><br>
+    • The attack rolls of ranged weapon attacks have disadvantage if the attacks pass in or out of the wind.
+    `.trim(),
+    classes: ['Druid', 'Bard', 'Sorcerer', 'Wizard'],
+  },
 ];
 
 
