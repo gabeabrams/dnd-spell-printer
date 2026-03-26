@@ -8,6 +8,87 @@ import Spell from '../types/Spell';
  */
 const additionalSpells: Spell[] = [
   {
+    id: 'snare',
+    name: 'Snare',
+    level: 1,
+    isAttack: false,
+    range: 'Touch',
+    isRitual: false,
+    castingTime: '1 minute',
+    isVerbal: false,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: '25 feet of rope, which the spell consumes',
+    isConcentration: false,
+    duration: '8 hours',
+    descriptionHTML: `
+As you cast this spell, you use the rope to create a circle with a 5-foot radius on the ground or the floor.When you finish casting, the rope disappears and the circle becomes a magic trap.
+This trap is nearly invisible, requiring a successful Intelligence(Investigation) check against your spell save DC to be discerned.
+The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must succeed on a Dexterity saving throw or be magically hoisted into the air, leaving it hanging upside down 3 feet above the ground or the floor. The creature is restrained there until the spell ends.
+A restrained creature can make a Dexterity saving throw at the end of each of its turns, ending the effect on itself on a success.Alternatively, the creature or someone else who can reach it can use an action to make an Intelligence(Arcana) check against your spell save DC.On a success, the restrained effect ends.
+After the trap is triggered, the spell ends when no creature is restrained by it.
+    `.trim(),
+    classes: ['Artificier', 'Druid', 'Ranger', 'Wizard'],
+  },
+  {
+    id: 'tidal-wave',
+    name: 'Tidal Wave',
+    level: 3,
+    isAttack: true,
+    range: '120 feet',
+    isRitual: false,
+    castingTime: 'Action',
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: 'a drop of water',
+    isConcentration: false,
+    duration: 'Instantaneous',
+    descriptionHTML: `
+You conjure up a wave of water that crashes down on an area within range.The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall.Each creature in that area must make a Dexterity saving throw.On a failed save, a creature takes 4d8 bludgeoning damage and is knocked prone.On a successful save, a creature takes half as much damage and isn't knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'wall-of-water',
+    name: 'Wall of Water',
+    level: 3,
+    isAttack: false,
+    range: '60 feet',
+    isRitual: false,
+    castingTime: 'Action',
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: true,
+    materialCost: 'a drop of water',
+    isConcentration: true,
+    duration: '10m',
+    descriptionHTML: `
+You create a wall of water on the ground at a point you can see within range.You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick.The wall vanishes when the spell ends.The wall's space is difficult terrain.
+Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot-square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it.
+    `.trim(),
+    classes: ['Druid', 'Sorcerer', 'Wizard'],
+  },
+  {
+    id: 'skywrite',
+    name: 'Skywrite',
+    level: 2,
+    isAttack: false,
+    range: 'Sight',
+    isRitual: true,
+    castingTime: 'Action',
+    isVerbal: true,
+    isSomatic: true,
+    isMaterial: false,
+    materialCost: '',
+    isConcentration: true,
+    duration: '1 hour',
+    descriptionHTML: `
+You cause up to ten words to form in a part of the sky you can see.The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early.
+    `.trim(),
+    classes: ['Artificier', 'Bard', 'Druid', 'Wizard'],
+  },
+  {
     id: 'alustriels-mooncloak',
     name: 'Alustriel\'s Mooncloak',
     level: 5,
